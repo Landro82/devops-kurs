@@ -1,1 +1,1 @@
-Meine erste Konfiguration
+Version aus main
