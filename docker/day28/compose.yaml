@@ -1,0 +1,5 @@
+services:
+  app:
+    image: nginx:latest
+    environment:
+      APP_MESSAGE: ${APP_MESSAGE}
