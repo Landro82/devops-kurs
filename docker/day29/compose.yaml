@@ -1,0 +1,10 @@
+services:
+  app:
+    image: alpine:latest
+    command: ["sh", "-c", "echo 'Container gestartet'; sleep 3600"]
+    secrets:
+      - db_password
+
+secrets:
+  db_password:
+    file: ./db_password.txt
