@@ -14,4 +14,4 @@ jobs:
         uses: actions/checkout@v5
 
       - name: Test ausführen
-        run: echo "GitHub Actions funktioniert!"
+        run: ./tests/test.sh
