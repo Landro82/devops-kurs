@@ -13,5 +13,5 @@ jobs:
       - name: Repository auschecken
         uses: actions/checkout@v5
 
-      - name: Test ausführen
+      - name: Tests ausführen
         run: ./tests/test.sh
