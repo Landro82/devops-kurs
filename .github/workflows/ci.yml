@@ -15,3 +15,6 @@ jobs:
 
       - name: Tests ausführen
         run: ./tests/test.sh
+
+      - name: Docker Image bauen
+        run: docker build -t devops-day34 docker/day23
