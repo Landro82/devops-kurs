@@ -18,3 +18,6 @@ jobs:
 
       - name: Docker Image bauen
         run: docker build -t devops-day34 docker/day23
+
+      - name: Docker Image taggen
+        run: docker tag devops-day34:latest ghcr.io/landro82/devops-kurs:day35
