@@ -32,3 +32,6 @@ jobs:
 
       - name: Docker Image taggen
         run: docker tag devops-day34:latest ghcr.io/landro82/devops-kurs:day35
+     
+      - name: Docker Image pushen
+        run: docker push ghcr.io/landro82/devops-kurs:day35  
