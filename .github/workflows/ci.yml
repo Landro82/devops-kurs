@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+    tags:
+      - 'v*'
 
 permissions:
   contents: read
@@ -30,16 +32,17 @@ jobs:
       - name: Docker Image bauen
         run: docker build -t devops-day34 docker/day23
 
-      - name: Docker Image taggen
-        run: docker tag devops-day34:latest ghcr.io/landro82/devops-kurs:day35
-
-      - name: Docker Image mit Version taggen
+      - name: Docker Image taggen und pushen
+        env:
+          IMAGE: ghcr.io/landro82/devops-kurs
         run: |
-          docker tag devops-day34:latest ghcr.io/landro82/devops-kurs:v1.1
-          docker tag devops-day34:latest ghcr.io/landro82/devops-kurs:latest     
-     
-      - name: Docker Images pushen
-        run: |
-          docker push ghcr.io/landro82/devops-kurs:day35
-          docker push ghcr.io/landro82/devops-kurs:v1.1
-          docker push ghcr.io/landro82/devops-kurs:latest    
+          if [[ "$GITHUB_REF" == refs/tags/* ]]; then
+            VERSION="${GITHUB_REF#refs/tags/}"
+            docker tag devops-day34:latest "$IMAGE:$VERSION"
+            docker push "$IMAGE:$VERSION"
+          elif [[ "$GITHUB_REF" == refs/heads/main ]]; then
+            docker tag devops-day34:latest "$IMAGE:day35"
+            docker tag devops-day34:latest "$IMAGE:latest"
+            docker push "$IMAGE:day35"
+            docker push "$IMAGE:latest"
+          fi
