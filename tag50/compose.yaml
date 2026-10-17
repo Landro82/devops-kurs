@@ -1,5 +1,10 @@
 services:
   web:
     image: nginx:alpine
+    restart: unless-stopped
     ports:
       - "8081:80"
+    environment:
+      APP_ENV: ${APP_ENV}
+    volumes:
+      - ./html:/usr/share/nginx/html:ro
