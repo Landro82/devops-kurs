@@ -25,3 +25,6 @@ jobs:
 
       - name: HTML-Datei prüfen
         run: test -f tag50/html/index.html
+     
+      - name: HTML-Titel prüfen
+        run: grep -q '<title>Mein DevOps-Projekt</title>' tag50/html/index.html 
