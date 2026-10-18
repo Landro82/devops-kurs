@@ -22,3 +22,6 @@ jobs:
         env:
           APP_ENV: testing
         run: docker compose -f tag50/compose.yaml config --quiet
+
+      - name: HTML-Datei prüfen
+        run: test -f tag50/html/index.html
