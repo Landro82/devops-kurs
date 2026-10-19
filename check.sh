@@ -1,6 +1,9 @@
 #!/bin/bash
 set -e
 
+echo "Starte lokale CI-Prüfungen..."
+
+
 echo "Prüfe Docker-Compose-Konfiguration..."
 APP_ENV=testing docker compose -f tag50/compose.yaml config --quiet
 
