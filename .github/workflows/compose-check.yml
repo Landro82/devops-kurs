@@ -4,10 +4,12 @@ on:
   push:
     paths:
       - "tag50/**"
+      - "check.sh"
       - ".github/workflows/compose-check.yml"
   pull_request:
     paths:
       - "tag50/**"
+      - "check.sh"
       - ".github/workflows/compose-check.yml"
 
 jobs:
@@ -18,13 +20,5 @@ jobs:
       - name: Repository auschecken
         uses: actions/checkout@v4
 
-      - name: Docker Compose Konfiguration prüfen
-        env:
-          APP_ENV: testing
-        run: docker compose -f tag50/compose.yaml config --quiet
-
-      - name: HTML-Datei prüfen
-        run: test -f tag50/html/index.html
-     
-      - name: HTML-Titel prüfen
-        run: grep -q '<title>Mein DevOps-Projekt</title>' tag50/html/index.html 
+      - name: Lokale CI-Prüfungen ausführen
+        run: ./check.sh
