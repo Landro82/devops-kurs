@@ -13,4 +13,7 @@ test -f tag50/html/index.html
 echo "Prüfe HTML-Titel..."
 grep -q '<title>Mein DevOps-Projekt</title>' tag50/html/index.html
 
+echo "Prüfe HTML-Überschrift..."
+grep -q '<h1>Tag 56 - Live-Änderung erfolgreich!</h1>' tag50/html/index.html
+
 echo "Alle Prüfungen erfolgreich!"
