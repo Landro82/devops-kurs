@@ -30,7 +30,11 @@ jobs:
         run: ./tests/test.sh
 
       - name: Docker Image bauen
-        run: docker build -t devops-day34 docker/day23
+        run: |
+          docker build \
+            --build-arg VCS_REF="${GITHUB_SHA}" \
+            -t devops-day34 \
+            docker/day23
 
       - name: Docker Image taggen und pushen
         env:
