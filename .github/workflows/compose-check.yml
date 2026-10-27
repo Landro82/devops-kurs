@@ -6,11 +6,15 @@ on:
       - "tag50/**"
       - "check.sh"
       - ".github/workflows/compose-check.yml"
+      - ".github/workflows/ci.yml"
+      - "docker/day23/**"
   pull_request:
     paths:
       - "tag50/**"
       - "check.sh"
       - ".github/workflows/compose-check.yml"
+      - ".github/workflows/ci.yml"
+      - "docker/day23/**"
 
 jobs:
   compose-check:
