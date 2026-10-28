@@ -47,6 +47,8 @@ jobs:
           elif [[ "$GITHUB_REF" == refs/heads/main ]]; then
             docker tag devops-day34:latest "$IMAGE:day35"
             docker tag devops-day34:latest "$IMAGE:latest"
+            docker tag devops-day34:latest "$IMAGE:sha-${GITHUB_SHA::7}"
             docker push "$IMAGE:day35"
             docker push "$IMAGE:latest"
+            docker push "$IMAGE:sha-${GITHUB_SHA::7}"
           fi
